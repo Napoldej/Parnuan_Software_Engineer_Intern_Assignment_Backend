@@ -38,5 +38,37 @@ class TransactionRepository{
             throw error;
         }
     }
+    
+    async read_income_transactions(user_id: string){
+        try{
+            const transactions = await this.prisma.transaction.findMany({
+                where: {
+                    user_id: user_id,
+                    type: "Income",
+                    is_deleted: false
+                    }
+                })
+                return transactions
+            }catch(error){
+                console.log("Error reading income transactions:", error);
+                throw error;
+            }
+        }
+
+    async read_expense_transactions(user_id: string){
+        try{
+            const transactions = await this.prisma.transaction.findMany({
+                where: {
+                    user_id: user_id,
+                    type: "Expense",
+                    is_deleted: false
+                    }
+                })
+                return transactions
+            }catch(error){
+                console.log("Error reading expense transactions:", error);
+                throw error;
+            }
+        }
 
 }
