@@ -24,4 +24,19 @@ class TransactionRepository{
             throw error;
         }
     }
+    async read_transactions(user_id: string){
+        try{
+            const transactions = await this.prisma.transaction.findMany({
+                where: {
+                    user_id: user_id,
+                    is_deleted: false
+                }
+            })
+            return transactions
+        }catch(error){
+            console.log("Error reading transactions:", error);
+            throw error;
+        }
+    }
+
 }
