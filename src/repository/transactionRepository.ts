@@ -16,7 +16,8 @@ class TransactionRepository{
                 title: input.title,
                 user_id: user_id,
                 amount: input.amount,
-                type: input.type as TransactionType
+                type: input.type as TransactionType,
+                created_at: new Date()
                 }
             })
             return transaction
