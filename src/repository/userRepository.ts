@@ -1,6 +1,6 @@
 import type { PrismaClient } from "@prisma/client";
 import PrismaSingleTon from "../helper/prismaSingleTon.js";
-import type { createUserType } from "../types/usertype.js";
+import type { createUserType } from "../types/userType.js";
 
 class UserRepository{
     private prisma: PrismaClient;

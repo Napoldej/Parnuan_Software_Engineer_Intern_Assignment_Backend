@@ -1,4 +1,4 @@
-import type { createUserType } from "../types/usertype.js";
+import type { createUserType } from "../types/userType.js";
 import  UserRepository  from "../repository/userRepository.js";
 
 class UserService {
