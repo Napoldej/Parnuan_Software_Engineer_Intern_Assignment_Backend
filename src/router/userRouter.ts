@@ -30,7 +30,7 @@ const userController = new UserController();
  *                   type: string
  *                 data:
  *                   $ref: '#/components/schemas/User'
- *       500:
+ *       400:
  *         description: Failed to create user
  */
 router.post("/create-user", (req, res) => userController.createUser(req, res))
