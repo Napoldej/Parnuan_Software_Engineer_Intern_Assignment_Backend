@@ -17,6 +17,7 @@ class UserRepository{
                     name: input.name
                 }
             })
+            return user
         }catch(error){
             console.log("Error creating user:", error);
             throw error;

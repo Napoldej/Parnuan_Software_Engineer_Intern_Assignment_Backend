@@ -6,6 +6,6 @@ const router = Router();
 const userController = new UserController();
 
 
-router.post("/users", (req, res) => userController.createUser(req, res))
+router.post("/create-user", (req, res) => userController.createUser(req, res))
 
 export default router;

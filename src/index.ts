@@ -13,7 +13,7 @@ class MainApp{
 
     public start(){
         this.listen();
-        this.app.use(userRouter)
+        this.app.use("/api/users",userRouter)
         
     }
 

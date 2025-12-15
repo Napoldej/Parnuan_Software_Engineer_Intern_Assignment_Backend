@@ -10,7 +10,8 @@ class UserService {
 
     async createUser(input: createUserType) {
         try {
-            await this.userRepository.createUser(input);
+            const user = await this.userRepository.createUser(input);
+            return user;
         } catch (error) {
             console.log("Error in UserService createUser:", error);
             throw error;
