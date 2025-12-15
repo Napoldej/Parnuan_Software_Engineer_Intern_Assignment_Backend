@@ -1,4 +1,6 @@
 import  express from "express";
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './swagger.js';
 import userRouter from "./router/userRouter.js";
 import transactionRouter from "./router/transactionRouter.js";
 
@@ -14,6 +16,13 @@ class MainApp{
 
     public start(){
         this.listen();
+        // Swagger UI
+        this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+        // Expose raw OpenAPI JSON for debugging
+        this.app.get('/api-docs.json', (_req, res) => {
+            res.setHeader('Content-Type', 'application/json');
+            res.send(swaggerSpec);
+        });
         this.app.use("/api/users",userRouter)
         this.app.use("/api/transactions", transactionRouter)
         
