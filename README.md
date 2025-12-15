@@ -6,6 +6,10 @@
 docker run --name mongodb -d -p 27017:27017 mongo:7 --replSet rs0
 
 ```
+## Create .env file according to .env.exmaple
+```
+DOCKER_URL = "YOUR_URL"
+```
 
 ## Install Environment
 For Change directory to app
