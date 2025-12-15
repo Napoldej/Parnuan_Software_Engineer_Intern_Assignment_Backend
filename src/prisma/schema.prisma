@@ -34,5 +34,6 @@ model Transaction {
     user_id String @db.ObjectId
     is_deleted Boolean @default(false)
     deleted_at DateTime?
+    updated_at DateTime? @updatedAt
     user User @relation(fields: [user_id], references: [id])
 }
