@@ -1,5 +1,6 @@
 import  express from "express";
 import userRouter from "./router/userRouter.js";
+import transactionRouter from "./router/transactionRouter.js";
 
 class MainApp{
     public app: express.Application;
@@ -14,6 +15,7 @@ class MainApp{
     public start(){
         this.listen();
         this.app.use("/api/users",userRouter)
+        this.app.use("/api/transactions", transactionRouter)
         
     }
 

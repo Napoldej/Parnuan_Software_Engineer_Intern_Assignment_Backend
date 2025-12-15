@@ -12,3 +12,6 @@ router.get("/get-expense-transactions/:user_id", (req, res) => transactionContro
 router.patch("/delete-transaction/:transaction_id", (req, res) => transactionController.delete_transaction(req, res));
 router.patch("/edit-transaction/:transaction_id", (req, res) => transactionController.edit_transaction(req, res));
 router.patch("/recover-transaction/:transaction_id", (req, res) => transactionController.recover_transaction(req, res));
+
+
+export default router
