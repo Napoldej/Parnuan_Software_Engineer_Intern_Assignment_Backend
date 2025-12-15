@@ -1,0 +1,27 @@
+import type { PrismaClient, TransactionType } from "@prisma/client";
+import PrismaSingleTon from "../helper/prismaSingleTon.js";
+
+class TransactionRepository{
+    private prisma: PrismaClient
+
+    constructor(){
+        this.prisma = PrismaSingleTon.getInstance();
+    }
+
+    async add_transaction(user_id: string, amount: number, title: string, type: string){
+        try{
+            const transaction = await this.prisma.transaction.create({
+            data:{
+                title: title,
+                user_id: user_id,
+                amount: amount,
+                type: type as TransactionType
+                }
+            })
+            return transaction
+        }catch(error){
+            console.log("Error adding income transaction:", error);
+            throw error;
+        }
+    }
+}
